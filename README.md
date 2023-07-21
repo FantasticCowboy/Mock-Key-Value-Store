@@ -14,3 +14,19 @@ Run the following command from the directory to start the service on localhost:5
 ```
 docker-compose up
 ```
+## API
+
+### Get
+```
+/get?key=<KEY>
+```
+
+### Set
+```
+/set
+
+body={
+    key : <KEY>,
+    value : <VALUE>
+}
+```
