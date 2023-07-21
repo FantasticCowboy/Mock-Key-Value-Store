@@ -1,6 +1,6 @@
 import json
 from src.json_io import write_json_file, read_json_file
-from consistent_hash_function import ConsistenHash
+from src.consistent_hash_function import ConsistenHash
 
 
 class DiskManager():
@@ -9,8 +9,7 @@ class DiskManager():
     def __init__(self, directory):
         self.directory = directory
         self.hash = ConsistenHash()
-        self.hash.add_node(0)        
-        self.key_value_store = { 0 : {}}
+        self.key_value_store = { self.hash.add_node()  : {}}
         self.key_value_store : dict[int,dict[str,dict]]
         
     def _get_file_name(self, node : int):
@@ -24,9 +23,8 @@ class DiskManager():
             write_json_file(self._get_file_name(node), self.key_value_store[node])
 
     def expand(self):
-        new_node = len(self.key_value_store) + 1
-        self.hash.add_node(new_node)
-        self.key_value_store[new_node] = {}
+        self.key_value_store[self.hash.add_node()] = {}
+        self._rehash()
 
     # TODO: don't need to rehash everything this is inefficent
     def _rehash(self):

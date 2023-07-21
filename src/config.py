@@ -3,7 +3,7 @@ import copy
 import logging
 import pdb
 from abc import ABC
-import src.circular_array
+
 
 # Singletone class for reading in config information
 class Config(object):
