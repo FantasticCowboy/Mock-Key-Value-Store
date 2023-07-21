@@ -17,7 +17,8 @@ class ConsistenHash():
     def hash(self, value) -> int:
         return int.from_bytes(hashlib.sha256(bytes(value, encoding="utf-8")).digest(), byteorder="little")
 
-    def add_node(self) -> int:
-        new_node_pos = random.randint(0, self.HASH_SPACE)
+    def add_node(self, new_node_pos=None) -> int:
+        if not new_node_pos:
+            new_node_pos = random.randint(0, self.HASH_SPACE)
         self.array.insert(new_node_pos)        
         return new_node_pos
