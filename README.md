@@ -11,6 +11,6 @@ Everything else in the requirements.txt
 make sure to have docker and docker-compose isntalled
 
 Run the following command from the directory to start the service on localhost:5001
-'''
+```
 docker-compose up
-'''
+```
