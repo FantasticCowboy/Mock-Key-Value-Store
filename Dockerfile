@@ -6,6 +6,6 @@ WORKDIR /home
 COPY src src
 COPY ./requirements.txt ./requirements.txt
 COPY ./requirements-dev.txt ./requirements-dev.txt
-COPY etc etc
+COPY config config
 EXPOSE 5000
 RUN pip3 install -r ./requirements-dev.txt
