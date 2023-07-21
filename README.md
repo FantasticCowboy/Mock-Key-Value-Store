@@ -18,7 +18,9 @@ docker-compose up
 
 ### Get
 ```
-/get?key=<KEY>
+/get?key=<KEY, string>
+
+return the corresponding value if it exists
 ```
 
 ### Set
@@ -26,7 +28,7 @@ docker-compose up
 /set
 
 body={
-    key : <KEY>,
-    value : <VALUE>
+    key : <KEY,string>,
+    value : <VALUE,string>
 }
 ```
