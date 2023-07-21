@@ -1,0 +1,10 @@
+version: "3.9" # Use the latest version of Docker Compose syntax
+services:
+  key-value-store:
+    build: .
+    ports:
+      - "5001:80"
+    volumes:
+      - "./dev:/home/dev"
+    command: flask --app './src/app:create_app("etc/dev_config.json")' run -p 80 -h 0.0.0.0
+
